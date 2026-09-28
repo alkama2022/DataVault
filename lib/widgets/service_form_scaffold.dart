@@ -32,7 +32,7 @@ class ServiceFormScaffold extends StatefulWidget {
   final List<ServiceField> fields;
 
   /// Builds the confirmation summary lines from current input values.
-  final List<(String, String)> SummaryBuilder(Map<String, String> values);
+  final List<(String, String)> Function(Map<String, String> values) summaryBuilder;
 
   /// Returns an error string for [fieldKey] or null when valid.
   final String? Function(String fieldKey, String value, Map<String, String> values)

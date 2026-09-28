@@ -20,7 +20,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final _pageController = PageController();
   int _currentPage = 0;
 
-  static const _pages = [
+  static const List<({String title, String body})> _pages = [
     (
       title: 'Buy Data in Seconds',
       body: 'Quickly purchase affordable data bundles for your preferred network.',
@@ -92,7 +92,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 itemCount: _pages.length,
                 onPageChanged: (i) => setState(() => _currentPage = i),
                 itemBuilder: (context, i) {
-                  final (title, body) = _pages[i];
+                  final title = _pages[i].title;
+                  final body = _pages[i].body;
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 28),
                     child: Column(

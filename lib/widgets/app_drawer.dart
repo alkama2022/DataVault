@@ -151,8 +151,8 @@ class AppDrawer extends StatelessWidget {
   Widget _item(
     BuildContext context,
     IconData icon,
-    String label, {
-    required VoidCallback onTap,
+    String label,
+    VoidCallback onTap, {
     Color? color,
   }) {
     return ListTile(
