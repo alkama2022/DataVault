@@ -170,10 +170,22 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 16),
                 ],
-                CustomButton(
-                  label: AppStrings.signUp,
-                  isLoading: auth.isLoading,
-                  onPressed: _signUp,
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.primary.withOpacity(0.3),
+                        blurRadius: 16,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
+                  ),
+                  child: CustomButton(
+                    label: AppStrings.signUp,
+                    isLoading: auth.isLoading,
+                    onPressed: _signUp,
+                  ),
                 ),
                 const SizedBox(height: 24),
                 Row(

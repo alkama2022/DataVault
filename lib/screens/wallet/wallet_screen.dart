@@ -133,6 +133,13 @@ class _WalletScreenState extends State<WalletScreen> {
                   end: Alignment.bottomRight,
                 ),
                 borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.primary.withOpacity(0.3),
+                    blurRadius: 20,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
               ),
               child: Column(
                 children: [
@@ -242,10 +249,22 @@ class _WalletScreenState extends State<WalletScreen> {
                     ),
                     const SizedBox(height: 16),
                   ],
-                  CustomButton(
-                    label: _isFunding ? 'Fund Wallet' : 'Withdraw',
-                    isLoading: wallet.isProcessing,
-                    onPressed: _submit,
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.primary.withOpacity(0.3),
+                          blurRadius: 16,
+                          offset: const Offset(0, 6),
+                        ),
+                      ],
+                    ),
+                    child: CustomButton(
+                      label: _isFunding ? 'Fund Wallet' : 'Withdraw',
+                      isLoading: wallet.isProcessing,
+                      onPressed: _submit,
+                    ),
                   ),
                   if (_isFunding) ...[
                     const SizedBox(height: 16),

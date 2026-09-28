@@ -53,6 +53,28 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 40),
+                // Header with icon
+                Container(
+                  width: 64,
+                  height: 64,
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [AppColors.primary, AppColors.primaryDark],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.primary.withOpacity(0.3),
+                        blurRadius: 16,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
+                  ),
+                  child: const Icon(Icons.shield_rounded, color: Colors.white, size: 32),
+                ),
+                const SizedBox(height: 28),
                 const Text(
                   'Welcome back',
                   style: TextStyle(
@@ -146,10 +168,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 16),
                 ],
-                CustomButton(
-                  label: AppStrings.login,
-                  isLoading: auth.isLoading,
-                  onPressed: _login,
+                // Login button with shadow
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.primary.withOpacity(0.3),
+                        blurRadius: 16,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
+                  ),
+                  child: CustomButton(
+                    label: AppStrings.login,
+                    isLoading: auth.isLoading,
+                    onPressed: _login,
+                  ),
                 ),
                 const SizedBox(height: 28),
                 Row(

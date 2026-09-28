@@ -157,9 +157,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             // CTA
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 0, 24, 28),
-              child: CustomButton(
-                label: isLast ? AppStrings.getStarted : AppStrings.next,
-                onPressed: _next,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.primary.withOpacity(0.3),
+                      blurRadius: 20,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
+                ),
+                child: CustomButton(
+                  label: isLast ? AppStrings.getStarted : AppStrings.next,
+                  onPressed: _next,
+                ),
               ),
             ),
           ],

@@ -30,6 +30,13 @@ class ProfileScreen extends StatelessWidget {
                 end: Alignment.bottomRight,
               ),
               borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primary.withOpacity(0.3),
+                  blurRadius: 20,
+                  offset: const Offset(0, 8),
+                ),
+              ],
             ),
             child: Row(
               children: [
@@ -245,20 +252,29 @@ class ProfileScreen extends StatelessWidget {
     Widget? trailing,
     required VoidCallback onTap,
   }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Material(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.border),
-      ),
-      child: ListTile(
-        leading: Icon(icon, color: AppColors.textSecondary),
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
-        subtitle: subtitle != null ? Text(subtitle) : null,
-        trailing: trailing ?? const Icon(Icons.chevron_right_rounded, color: AppColors.textMuted),
-        onTap: onTap,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: AppColors.border),
+            ),
+            child: ListTile(
+              leading: Icon(icon, color: AppColors.textSecondary),
+              title: Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
+              subtitle: subtitle != null ? Text(subtitle) : null,
+              trailing: trailing ?? const Icon(Icons.chevron_right_rounded, color: AppColors.textMuted),
+              onTap: onTap,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            ),
+          ),
+        ),
       ),
     );
   }
